@@ -1,0 +1,31 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 24,
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["sway/window"], 
+	"modules-right": ["mpris", "clock", "tray"],
+	"sway/workspaces": {
+        	"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{name}"
+	},
+	"sway/window": {
+		"separator": "|"
+	},
+	"mpris": {
+		"format": "{status_icon} {title} - {artist}",
+		"status-icons": {
+			"playing": "▶",
+			"paused": "⏸"
+		 },
+		"tooltip-format": "{player} : {title} – {artist} ({album})"
+	},
+	"clock": {
+		"format": "{:%Y-%m-%d %H:%M}",
+		"tooltip": false
+	},
+	"tray": {
+		"spacing": 8
+	}
+}

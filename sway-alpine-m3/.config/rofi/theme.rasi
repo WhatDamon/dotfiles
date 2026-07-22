@@ -1,0 +1,187 @@
+/*****----- Color Tokens (dark-theme only) -----*****/
+* {
+    /* Surface */
+    surface-0:                  #1b1b1fFF;
+    surface-1:                  #22232aFF;
+    surface-2:                  #272831FF;
+    surface-3:                  #2b2e38FF;
+    surface-5:                  #2f323eFF;
+    on-surface:                 #e3e2e6FF;
+    on-surface-variant:         #c5c6d0FF;
+    surface-variant:            #44464fFF;
+
+    /* Primary */
+    primary:                    #afc6ffFF;
+    on-primary:                 #002d6cFF;
+    primary-container:          #004398FF;
+    on-primary-container:       #d9e2ffFF;
+
+    /* Secondary */
+    secondary:                  #bfc6dcFF;
+    secondary-container:        #3f4759FF;
+    on-secondary-container:     #dbe2f9FF;
+
+    /* Tertiary */
+    tertiary:                   #dfbbdeFF;
+    tertiary-container:         #593e5aFF;
+
+    /* Error */
+    error:                      #ffb4abFF;
+    on-error:                   #690005FF;
+
+    /* Outline */
+    outline:                    #8f9099FF;
+    outline-variant:            #44464fFF;
+
+    /* Font */
+    font:     "FiraCode Nerd Font Mono 12", "Noto Sans CJK SC 12";
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       480px;
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      1px solid;
+    border-radius:               14px;
+    border-color:                @outline-variant;
+    background-color:            @surface-1;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar — primary-container accent strip -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     16px;
+    border:                      0px solid;
+    border-radius:               14px 14px 0px 0px;
+    background-color:            @primary-container;
+    text-color:                  @on-primary-container;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search…";
+    placeholder-color:           @on-primary-container;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   true;
+    layout:                      vertical;
+    spacing:                     4px;
+    margin:                      0px;
+    padding:                     8px;
+    border:                      0px solid;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    cursor:                      "default";
+}
+
+/*****----- Scrollbar -----*****/
+scrollbar {
+    handle-width:                4px;
+    handle-color:                @primary;
+    border-radius:               2px;
+    background-color:            @surface-variant;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     10px 12px;
+    border:                      0px solid;
+    border-radius:               8px;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    cursor:                      pointer;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @on-surface;
+}
+
+element selected.normal {
+    background-color:            @primary;
+    text-color:                  @on-primary;
+}
+
+element selected.urgent {
+    background-color:            @surface-variant;
+    text-color:                  @error;
+}
+
+element selected.active {
+    background-color:            @primary-container;
+    text-color:                  @on-primary-container;
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        28px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message / Error -----*****/
+error-message {
+    padding:                     16px;
+    border:                      1px solid;
+    border-radius:               14px;
+    border-color:                @error;
+    background-color:            @surface-1;
+    text-color:                  @on-surface;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  @on-surface-variant;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    highlight:                   none;
+}

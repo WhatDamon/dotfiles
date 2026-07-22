@@ -1,0 +1,68 @@
+set $mod Mod1
+
+bar {
+    swaybar_command waybar
+}
+
+exec dunst
+exec dbus-daemon --session --fork
+exec --no-startup-id fcitx5 -d
+exec --no-startup-id pulseaudio --start --exit-idle-time=-1
+
+set $term foot
+bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+q kill
+#bindsym $mod+d exec wmenu-run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+e exit
+
+exec_always --no-startup-id autotiling
+bindsym $mod+Shift+r reload
+
+bindsym $mod+b split toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout tabbing
+bindsym $mod+w layout stacking
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+mode "resize" {
+    bindsym Left resize shrink width 10 px
+    bindsym Down resize grow height 10 px
+    bindsym Up resize shrink height 10 px
+    bindsym Right resize grow width 10 px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+focus_follows_mouse no
+
+font pango:monospace 10
+
+client.focused          #afc6ff #22232a #e3e2e6 #afc6ff #afc6ff
+client.unfocused        #44464f #1b1b1f #c5c6d0 #44464f #44464f
+client.focused_inactive #004398 #1b1b1f #c5c6d0 #004398 #004398
+client.urgent           #ffb4ab #1b1b1f #690005 #ffb4ab #ffb4ab
+
+default_border pixel 2
+
+output Virtual-1 resolution 1920x1080@60Hz scale 1.25
+output Virtual-1 bg ~/Pictures/wallpaper.png fill
+seat seat0 xcursor_theme Adwaita 30
+gaps inner 4
+gaps outer 4

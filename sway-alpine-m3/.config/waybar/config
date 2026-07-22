@@ -1,0 +1,40 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 40,
+	"modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
+	"modules-center": ["custom/window"], 
+	"modules-right": ["custom/mpris", "clock", "tray"],
+	"custom/launcher": {
+		"format": "󰊠",
+		"tooltip": false,
+		"on-click": "rofi -show drun"
+	},
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{name}"
+	},
+	"custom/window": {
+		"exec": "swaymsg -t get_tree | python3 ~/.config/waybar/scripts/window.py",
+		"interval": 1,
+		"tooltip": false
+	},
+	"custom/mpris": {
+		"exec": "playerctl metadata --format '󰎈 {{title}} - {{artist}}' 2>/dev/null || echo '󰝚'",
+		"interval": 5,
+		"return-type": "text",
+		"tooltip": true,
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous"
+	},
+	"clock": {
+		"format": "󰥔  {:%H:%M}",
+		"format-alt": "󰅐  {:%Y-%m-%d}",
+		"tooltip": false
+	},
+	"tray": {
+		"spacing": 8
+	}
+}

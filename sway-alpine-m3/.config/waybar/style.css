@@ -1,0 +1,235 @@
+/* ---- M3 Color Tokens ---- */
+@define-color surface              #1b1b1f;
+@define-color surface-1            #22232a;
+@define-color surface-2            #272831;
+@define-color surface-3            #2b2e38;
+@define-color on-surface           #e3e2e6;
+@define-color on-surface-variant   #c5c6d0;
+@define-color surface-variant      #44464f;
+
+@define-color light-primary        #0059c7;
+@define-color light-on-primary     #ffffff;
+
+@define-color primary              #afc6ff;
+@define-color primary-container    #004398;
+@define-color on-primary-container #d9e2ff;
+@define-color tertiary             #dfbbde;
+@define-color tertiary-container   #593e5a;
+@define-color on-tertiary-container #fcd7fb;
+
+@define-color error                #ffb4ab;
+@define-color on-error             #690005;
+
+/* ===========================================
+   Global Reset
+   =========================================== */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "FiraCode Nerd Font Mono", "Noto Sans CJK SC", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===========================================
+   Bar — transparent, segmented pills inside
+   =========================================== */
+window#waybar {
+    background: transparent;
+}
+
+/* ===========================================
+   Segment Pills
+   =========================================== */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: @surface-1;
+    border-radius: 14px;
+    padding: 0 4px;
+    margin: 6px 0;
+}
+
+.modules-left {
+    margin-left: 6px;
+}
+
+.modules-right {
+    margin-right: 6px;
+}
+
+/* ===========================================
+   Tooltip
+   =========================================== */
+tooltip {
+    background: @surface-3;
+    border: 1px solid @surface-variant;
+    border-radius: 8px;
+}
+tooltip label {
+    color: @on-surface;
+    font-size: 12px;
+}
+
+/* ===========================================
+   Launcher
+   =========================================== */
+#custom-launcher {
+    background: @surface-3;
+    color: @primary;
+    font-size: 18px;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+#custom-launcher:hover {
+    background: @primary-container;
+    color: @on-primary-container;
+}
+
+/* ===========================================
+   Workspaces
+   =========================================== */
+#workspaces {
+    background: transparent;
+}
+
+#workspaces button {
+    background: @surface-3;
+    color: @on-surface;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-width: 24px;
+    min-height: 26px;
+    transition: all 0.15s ease;
+}
+
+#workspaces button.active {
+    background: @on-surface;
+    color: @surface;
+    font-weight: 700;
+}
+
+#workspaces button:hover {
+    background: @on-surface;
+    color: @surface;
+}
+
+#workspaces button.empty {
+    background: transparent;
+    border: 1px solid @surface-variant;
+    color: alpha(@on-surface, 0.3);
+    min-width: 10px;
+    padding: 0 8px;
+}
+
+#workspaces button.empty:hover {
+    background: alpha(@surface-variant, 0.3);
+    border-color: @on-surface-variant;
+    color: @on-surface-variant;
+}
+
+#workspaces button.urgent {
+    background: @error;
+    color: @on-error;
+}
+
+/* ===========================================
+   Mode
+   =========================================== */
+#mode {
+    background: @primary;
+    color: @on-error;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+/* ===========================================
+   Window title — exec-driven, placeholder when empty
+   =========================================== */
+#custom-window {
+    background: @surface-3;
+    color: @on-surface-variant;
+    font-size: 12px;
+    padding: 0 18px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+/* ===========================================
+   MPRIS
+   =========================================== */
+#custom-mpris {
+    background: @surface-3;
+    color: @on-surface;
+    font-size: 12px;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+#custom-mpris:hover {
+    background: @tertiary-container;
+    color: @on-tertiary-container;
+}
+
+/* ===========================================
+   Clock — consistent chip style, primary accent text
+   =========================================== */
+#clock {
+    background: @surface-3;
+    color: @primary;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 0 18px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+/* ===========================================
+   System Tray
+   Known limitation: GTK3 tray icons are bitmaps,
+   CSS color/filter cannot recolor them.
+   Fix: lighter bg + child color + icon-effect
+   =========================================== */
+#tray {
+    background: alpha(@on-surface, 0.12);
+    padding: 0 10px;
+    margin: 5px 3px 5px 8px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+/* Force color on any symbolic/vector tray elements */
+#tray * {
+    color: @on-surface;
+}
+
+/* Lighten effect for bitmap icons */
+#tray image {
+    -gtk-icon-effect: highlight;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: highlight;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: alpha(@error, 0.3);
+    border-radius: 6px;
+}
