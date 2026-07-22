@@ -12,12 +12,17 @@
 
 ![sway-alpine-basic Preview](/preview/sway-alpine-basic-preview.png)
 
-### `sway-m3`
+### `sway-alpine-m3`
 
-![sway-m3](/preview/sway-alpine-m3-preview.png)
+![sway-alpine-m3 Preview](/preview/sway-alpine-m3-preview.png)
 
 ## 致谢
 
 在编写过程中参考了以下项目：
 
 - https://github.com/sameemul-haque/dotfiles
+
+壁纸来源：
+
+- `sway-alpine-basic`：KDE Plasma
+- `sway-alpine-m3`：https://wallpaperaccess.com/google-pixel-desktop
