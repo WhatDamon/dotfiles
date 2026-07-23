@@ -21,7 +21,6 @@
 在编写过程中参考了以下项目：
 
 - https://github.com/sameemul-haque/dotfiles
-- https://github.com/mengo1234/material-gnome
 
 壁纸来源：
 
