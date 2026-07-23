@@ -19,12 +19,15 @@
     progress_bar_frame_width = 0
     progress_bar_min_width = 150
     progress_bar_max_width = 300
-    separator_height = 2
-    frame_width = 2
+    # M3: thin separator line
+    separator_height = 1
+    # M3: subtle outline border
+    frame_width = 1
     frame_color = "#44464f"
     separator_color = "frame"
     corner_radius = 10
     transparency = 0
+    # M3: 8dp spacing between notifications
     gap_size = 8
     line_height = 4
     notification_limit = 5
