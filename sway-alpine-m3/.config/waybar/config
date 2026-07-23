@@ -21,9 +21,9 @@
 		"tooltip": false
 	},
 	"custom/mpris": {
-		"exec": "playerctl metadata --format '󰎈 {{title}} - {{artist}}' 2>/dev/null || echo '󰝚'",
+		"exec": "$HOME/.config/waybar/scripts/mpris.sh",
 		"interval": 5,
-		"return-type": "text",
+		"return-type": "json",
 		"tooltip": true,
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl next",
