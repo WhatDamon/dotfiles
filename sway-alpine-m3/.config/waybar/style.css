@@ -36,8 +36,16 @@
 /* ===========================================
    Bar — transparent, segmented pills inside
    =========================================== */
+
+/* Fade-in on startup */
+@keyframes waybar-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 window#waybar {
     background: transparent;
+    animation: waybar-fade-in 0.3s ease-out both;
 }
 
 /* ===========================================
