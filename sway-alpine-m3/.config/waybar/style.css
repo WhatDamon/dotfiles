@@ -107,8 +107,8 @@ tooltip label {
 }
 
 #workspaces button:hover {
-    background: @on-surface;
-    color: @surface;
+    background: alpha(@on-surface, 0.08);
+    color: @on-surface;
 }
 
 #workspaces button.empty {
@@ -120,9 +120,10 @@ tooltip label {
 }
 
 #workspaces button.empty:hover {
-    background: alpha(@surface-variant, 0.08);
-    border-color: @on-surface-variant;
-    color: @on-surface-variant;
+    background: alpha(@on-surface, 0.08);
+    border-color: @on-surface;
+    color: @on-surface;
+    font-weight: 500;
 }
 
 #workspaces button.urgent {
