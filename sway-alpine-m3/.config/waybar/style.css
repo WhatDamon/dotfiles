@@ -17,7 +17,7 @@
    Bar — transparent, segmented pills inside
    =========================================== */
 
-/* Fade-in on startup */
+/* M3 fade-in on startup — emphasized decelerate */
 @keyframes waybar-fade-in {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -25,7 +25,7 @@
 
 window#waybar {
     background: transparent;
-    animation: waybar-fade-in 0.3s ease-out both;
+    animation: waybar-fade-in 300ms cubic-bezier(0.05, 0.7, 0.1, 1) both;
 }
 
 /* ===========================================
@@ -72,6 +72,7 @@ tooltip label {
     margin: 5px 3px;
     border-radius: 8px;
     min-height: 26px;
+    transition: all 200ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 #custom-launcher:hover {
@@ -96,7 +97,7 @@ tooltip label {
     border-radius: 8px;
     min-width: 24px;
     min-height: 26px;
-    transition: all 0.15s ease;
+    transition: all 200ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 #workspaces button.active {
@@ -119,7 +120,7 @@ tooltip label {
 }
 
 #workspaces button.empty:hover {
-    background: alpha(@surface-variant, 0.3);
+    background: alpha(@surface-variant, 0.08);
     border-color: @on-surface-variant;
     color: @on-surface-variant;
 }
@@ -167,6 +168,7 @@ tooltip label {
     margin: 5px 3px;
     border-radius: 8px;
     min-height: 26px;
+    transition: all 200ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 #custom-mpris:hover {
@@ -195,7 +197,7 @@ tooltip label {
    Fix: lighter bg + child color + icon-effect
    =========================================== */
 #tray {
-    background: alpha(@on-surface, 0.12);
+    background: alpha(@on-surface, 0.08);
     padding: 0 10px;
     margin: 5px 3px 5px 8px;
     border-radius: 8px;
@@ -218,6 +220,6 @@ tooltip label {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background: alpha(@error, 0.3);
+    background: alpha(@error, 0.08);
     border-radius: 6px;
 }
