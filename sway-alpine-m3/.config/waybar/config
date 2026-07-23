@@ -4,7 +4,7 @@
 	"height": 40,
 	"modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
 	"modules-center": ["custom/window"], 
-	"modules-right": ["custom/mpris", "clock", "tray"],
+	"modules-right": ["custom/mpris", "cpu", "memory", "clock", "tray"],
 	"custom/launcher": {
 		"format": "󰊠",
 		"tooltip": false,
@@ -28,6 +28,16 @@
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl next",
 		"on-scroll-down": "playerctl previous"
+	},
+	"cpu": {
+		"format": " {usage}%",
+		"interval": 3,
+		"tooltip": true
+	},
+	"memory": {
+		"format": " {percentage}%",
+		"interval": 3,
+		"tooltip": true
 	},
 	"clock": {
 		"format": "󰥔  {:%H:%M}",

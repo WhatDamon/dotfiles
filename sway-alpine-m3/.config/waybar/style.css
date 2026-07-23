@@ -178,6 +178,28 @@ tooltip label {
 }
 
 /* ===========================================
+   CPU / Memory — plain text, M3 semantic accent
+   =========================================== */
+#cpu,
+#memory {
+    background: @surface-3;
+    color: @on-surface;
+    font-size: 12px;
+    padding: 0 12px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+}
+
+#cpu {
+    color: @primary;
+}
+
+#memory {
+    color: @tertiary;
+}
+
+/* ===========================================
    Clock — consistent chip style, primary accent text
    =========================================== */
 #clock {
