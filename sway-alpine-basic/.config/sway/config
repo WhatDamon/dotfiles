@@ -60,7 +60,7 @@ client.urgent #ef5350 #1e1e1e #ffffff #ef5350 #ef5350
 default_border pixel 2
 
 output Virtual-1 resolution 1920x1080@60Hz scale 1.25
-output Virtual-1 bg ~/Pictures/wallpaper.png fit
+output Virtual-1 bg ~/Pictures/wallpaper.png fill
 seat seat0 xcursor_theme Adwaita 30
 gaps inner 4
 gaps outer 4
