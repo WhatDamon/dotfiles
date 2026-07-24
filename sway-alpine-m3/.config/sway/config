@@ -1,27 +1,12 @@
 # =============================================================================
-# Sway Config — Material 3 Inspired
+# Sway Config
 # =============================================================================
-# M3 Design principles applied:
-#   - Surface tone hierarchy for client colors
-#   - M3 semantic colors: primary, error
-#   - Tight spacing consistent with M3 layout grid
-#   - Squircle-style rounded borders (pixel approximation)
-#   - Smooth resize/move enabled
 
 set $mod Mod1
 
 # =============================================================================
-# M3 Color Tokens (wallpaper-generated palette)
+# M3 Color Tokens
 # =============================================================================
-# Surface hierarchy (dark): surface → surface-1 → surface-2 → surface-3 → surface-variant
-# M3 semantic: primary (#afc6ff), error (#ffb4ab)
-
-# client.focused          border-bg         background     text           indicator    child-border
-# client.focused_inactive border-bg         background     text           indicator    child-border
-# client.unfocused        border-bg         background     text           indicator    child-border
-# client.urgent           border-bg         background     text           indicator    child-border
-#
-# Format: client.color_class  border  background  text  indicator  child_border
 
 # M3 Focused — primary outline, elevated surface bg
 client.focused          #afc6ff #22232a #e3e2e6 #afc6ff #afc6ff
@@ -39,9 +24,8 @@ client.urgent           #ffb4ab #1b1b1f #690005 #ffb4ab #ffb4ab
 default_border pixel 2
 
 # =============================================================================
-# M3 Spacing — tight, consistent gaps
+# Spacing
 # =============================================================================
-# M3 layout grid: 4dp internal, 4dp external margin
 gaps inner 4
 gaps outer 4
 
@@ -65,9 +49,9 @@ focus_follows_mouse no
 font pango:monospace 10
 
 # =============================================================================
-# Autostart (M3 services)
+# Autostart
 # =============================================================================
-exec dunst
+exec swaync
 exec dbus-daemon --session --fork
 exec --no-startup-id fcitx5 -d
 exec --no-startup-id pulseaudio --start --exit-idle-time=-1
@@ -75,7 +59,7 @@ exec --no-startup-id pulseaudio --start --exit-idle-time=-1
 exec_always --no-startup-id autotiling
 
 # =============================================================================
-# Bar — Waybar (M3 segmented pill bar)
+# Bar — Waybar
 # =============================================================================
 bar {
     swaybar_command waybar
@@ -89,7 +73,7 @@ bar {
 set $term foot
 bindsym $mod+Return exec $term
 
-# Launcher (M3 search/launch)
+# Launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Window management
@@ -132,7 +116,7 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # =============================================================================
-# Resize Mode — M3 precision adjustments
+# Resize Mode
 # =============================================================================
 mode "resize" {
     bindsym Left resize shrink width 10 px

@@ -1,5 +1,4 @@
 # Material Design 3 Dark theme for btop
-# Matches sway-alpine-m3 color palette
 
 # Main background, match terminal bg
 theme[main_bg]="#1b1b1f"

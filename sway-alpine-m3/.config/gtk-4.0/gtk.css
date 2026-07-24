@@ -1,8 +1,5 @@
 /*
  * GTK4 color tokens + widget refinements — Material 3 (dark)
- *
- * Color tokens are picked up by adw-gtk3 via GTK3 bridge.
- * Widget CSS applies M3 polish to libadwaita widgets.
  */
 
 /* =============================================================================

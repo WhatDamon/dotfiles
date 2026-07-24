@@ -1,5 +1,4 @@
 #!/bin/sh
-# Waybar MPRIS module — JSON output with full tooltip
 # Depends: playerctl
 
 usec_to_time() {
@@ -44,8 +43,8 @@ fi
 
 icon="󰝚"
 case "$status" in
-    Playing) icon="󰎈" ;;
-    Paused)  icon="󰏤" ;;
+    Playing) icon="󰏤" ;;
+    Paused)  icon="󰎈" ;;
 esac
 
 display_text=$(printf '%s' "${icon} ${title}${artist:+" - ${artist}"}" \

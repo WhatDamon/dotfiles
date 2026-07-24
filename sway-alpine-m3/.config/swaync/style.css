@@ -1,0 +1,391 @@
+/*
+ * =============================================================================
+ * SwayNC — Material 3 (Dark) Theme
+ * =============================================================================
+ */
+
+/* ---- M3 Color Tokens ---- */
+@define-color surface-container-lowest  #1b1b1f;
+@define-color surface-container-low     #22232a;
+@define-color surface-container         #272831;
+@define-color surface-container-high    #2b2e38;
+@define-color surface-container-highest #2c2f39;
+
+@define-color on-surface         #e3e2e6;
+@define-color on-surface-variant #c5c6d0;
+@define-color surface-variant    #44464f;
+@define-color outline            #8f9099;
+@define-color outline-variant    #44464f;
+
+@define-color primary              #afc6ff;
+@define-color on-primary           #002d6c;
+@define-color primary-container    #004398;
+@define-color on-primary-container #d9e2ff;
+
+@define-color secondary              #bfc6dc;
+@define-color secondary-container    #3f4759;
+@define-color on-secondary-container #dbe2f9;
+
+@define-color tertiary             #dfbbde;
+@define-color tertiary-container   #593e5a;
+@define-color on-tertiary-container #fcd7fb;
+
+@define-color error          #ffb4ab;
+@define-color on-error       #690005;
+@define-color error-container #93000a;
+@define-color on-error-container #ffb4ab;
+
+@define-color state-hover       rgba(227, 226, 230, 0.08);
+@define-color state-focus       rgba(227, 226, 230, 0.12);
+@define-color state-active      rgba(227, 226, 230, 0.18);
+@define-color state-primary-hover  rgba(175, 198, 255, 0.08);
+@define-color state-primary-focus  rgba(175, 198, 255, 0.12);
+@define-color state-primary-active rgba(175, 198, 255, 0.18);
+
+@define-color mpris-overlay      rgba(20, 20, 26, 0.75);
+@define-color mpris-button-hover rgba(223, 187, 222, 0.15);
+
+/* =============================================================================
+ * Global
+ * ============================================================================= */
+
+* {
+    all: unset;
+    font-family: "FiraCode Nerd Font Mono", "Noto Sans CJK SC", "Font Awesome 6 Free", "Material Icons", sans-serif;
+    font-size: 13px;
+    color: @on-surface;
+}
+
+/* =============================================================================
+ * Notification Popup Window
+ * ============================================================================= */
+
+.floating-notifications { margin: 6px 0; }
+.notification-row { outline: none; margin: 0; padding: 0 8px; }
+
+.notification {
+    background-color: @surface-container-low;
+    border: 1px solid @outline-variant;
+    border-radius: 12px;
+    margin: 4px 0;
+    padding: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: all 500ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.notification:hover { background-color: @surface-container; border-color: @outline; }
+
+.notification-default-action {
+    padding: 16px;
+    border-radius: 12px;
+    transition: background-color 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+
+.notification-default-action:hover { background-color: @state-hover; }
+.notification-default-action:active { background-color: @state-active; }
+.notification-default-action:focus-visible {
+    background-color: @state-focus;
+    outline: 2px solid @primary;
+    outline-offset: -2px;
+}
+
+.notification-content { background-color: transparent; padding: 0; }
+.notification-content image { margin-right: 16px; border-radius: 8px; }
+
+.close-button {
+    background-color: transparent;
+    color: @on-surface-variant;
+    padding: 4px;
+    border-radius: 9999px;
+    font-size: 16px;
+    min-width: 28px;
+    min-height: 28px;
+    transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+
+.close-button:hover { background-color: @state-hover; color: @on-surface; }
+.close-button:active { background-color: @state-active; }
+.close-button:focus-visible {
+    background-color: @state-focus;
+    outline: 2px solid @primary;
+}
+
+.notification-icon { min-width: 40px; min-height: 40px; border-radius: 8px; }
+.notification-title { color: @on-surface; font-weight: 700; font-size: 14px; }
+.notification-body { color: @on-surface-variant; font-size: 12px; margin-top: 4px; }
+.notification-time { color: @surface-container-highest; font-size: 11px; font-weight: 500; }
+
+.notification-action {
+    background-color: transparent;
+    color: @primary;
+    padding: 8px 16px;
+    margin: 0;
+    border-top: 1px solid @outline-variant;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+
+.notification-action:first-child { border-bottom-left-radius: 12px; }
+.notification-action:last-child { border-bottom-right-radius: 12px; }
+.notification-action:hover { background-color: @state-primary-hover; }
+.notification-action:active { background-color: @state-primary-active; }
+.notification-action:focus-visible {
+    background-color: @state-primary-focus;
+    outline: 2px solid @primary;
+    outline-offset: -2px;
+}
+
+.notification-group { margin: 4px 0; }
+.notification-group-header {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: @on-surface;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.notification-group-count {
+    background-color: @surface-container-high;
+    color: @on-surface-variant;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.notification.critical { border-color: @error; background-color: @surface-container-low; }
+.notification.critical .notification-default-action {
+    border-left: 3px solid @error;
+    background-color: alpha(@error-container, 0.08);
+}
+.notification.critical .notification-title { color: @error; }
+.notification.critical .notification-body { color: @on-surface-variant; }
+
+.notification.low .notification-title { color: @on-surface-variant; }
+.notification.low .notification-body { color: @surface-container-highest; }
+
+/* =============================================================================
+ * M3 Control Center - 写死颜色确保不透明
+ * ============================================================================= */
+
+.control-center {
+    background-color: #22232a;
+    border: 1px solid @outline-variant;
+    border-radius: 17px;
+    margin: 8px;
+    padding: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.control-center-list {
+    background-color: transparent;
+    padding: 0 8px 8px;
+    margin: 0;
+}
+
+.control-center-list > * { margin: 4px 0; }
+
+.control-center-list-placeholder {
+    color: @on-surface-variant;
+    font-size: 14px;
+    text-align: center;
+    padding: 32px 16px;
+}
+
+/* =============================================================================
+ * M3 Widgets (Title, DND)
+ * ============================================================================= */
+
+.widget-title, .widget-dnd, .widget-label, .widget-mpris {
+    margin: 0;
+    padding: 8px 12px;
+}
+
+.widget-title {
+    background-color: transparent;
+    padding: 16px 16px 12px;
+    color: @on-surface;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.widget-title button {
+    background-color: transparent;
+    color: @primary;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+
+.widget-title button:hover { background-color: @state-primary-hover; }
+.widget-title button:active { background-color: @state-primary-active; }
+.widget-title button:focus-visible {
+    background-color: @state-primary-focus;
+    outline: 2px solid @primary;
+}
+
+.widget-dnd { background-color: transparent; padding: 4px 16px 10px; }
+
+.widget-dnd > switch {
+    background-color: @surface-container-high;
+    border: 2px solid @outline;
+    border-radius: 9999px;
+    min-width: 48px;
+    min-height: 26px;
+    transition: all 350ms cubic-bezier(0.42, 1.67, 0.21, 0.9);
+}
+
+.widget-dnd > switch:checked { background-color: @primary; border-color: @primary; }
+
+.widget-dnd > switch slider {
+    background-color: @on-surface;
+    border: none;
+    border-radius: 9999px;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 350ms cubic-bezier(0.42, 1.67, 0.21, 0.9);
+}
+
+.widget-dnd > switch:checked slider {
+    background-color: @on-primary;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 2px;
+}
+
+.widget-dnd > label {
+    color: @on-surface;
+    font-weight: 600;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* =============================================================================
+ * M3 MPRIS (Media Player Card)
+ * ============================================================================= */
+
+.widget-mpris {
+    background-color: transparent;
+    margin: 8px;
+}
+
+.widget-mpris .widget-mpris-player {
+    background-color: @surface-container;
+    border: 1px solid @primary-container;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+
+.widget-mpris .widget-mpris-player:hover {
+    border-color: @primary;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.widget-mpris .widget-mpris-player .mpris-background {
+    filter: blur(8px) grayscale(0.3) brightness(0.6);
+    opacity: 0.6;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay {
+    padding: 16px;
+    background-color: @mpris-overlay;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-title {
+    color: @on-surface;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-subtitle {
+    color: @on-surface-variant;
+    font-size: 13px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+    min-width: 72px;
+    min-height: 72px;
+    -gtk-icon-size: 72px;
+    border-radius: 10px;
+    margin-right: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box {
+    margin-top: 12px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button {
+    -gtk-icon-size: 20px;
+    background-color: transparent;
+    color: @tertiary;
+    border: none;
+    border-radius: 9999px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    font-size: 18px;
+    font-family: "Font Awesome 6 Free", "Material Design Icons", "FiraCode Nerd Font Mono", sans-serif;
+    font-weight: 900;
+    transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:hover {
+    background-color: @mpris-button-hover;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:active {
+    background-color: alpha(@tertiary, 0.18);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:focus-visible {
+    outline: 2px solid @tertiary;
+    outline-offset: 2px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:nth-child(3) {
+    background-color: @primary-container;
+    color: @on-primary-container;
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:nth-child(3):hover {
+    background-color: @primary;
+    color: @on-primary;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay > box > button:nth-child(3):active {
+    background-color: @on-surface;
+    color: @surface-container-lowest;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================================================
+ * M3 Scrollbar & Separator
+ * ============================================================================= */
+
+scrollbar { background-color: transparent; border: none; margin: 0; }
+scrollbar slider {
+    background-color: @surface-container-highest;
+    border: none;
+    border-radius: 9999px;
+    min-width: 4px;
+    min-height: 32px;
+    transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1);
+}
+scrollbar slider:hover { background-color: @outline; min-width: 6px; }
+scrollbar slider:active { background-color: @on-surface-variant; min-width: 6px; }
+
+separator { background-color: @outline-variant; margin: 2px 12px; min-height: 1px; }

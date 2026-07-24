@@ -4,7 +4,7 @@
 	"height": 40,
 	"modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
 	"modules-center": ["custom/window"], 
-	"modules-right": ["custom/mpris", "cpu", "memory", "clock", "tray"],
+	"modules-right": ["custom/mpris", "cpu", "memory", "clock", "custom/notification", "tray"],
 	"custom/launcher": {
 		"format": "󰊠",
 		"tooltip": false,
@@ -28,6 +28,13 @@
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl next",
 		"on-scroll-down": "playerctl previous"
+	},
+	"custom/notification": {
+		"exec-if": "pgrep -x swaync",
+		"exec": "echo '{\"text\": \"󰂚\", \"tooltip\": \"Notification Center\"}'",
+		"on-click": "swaync-client -t -sw",
+		"return-type": "json",
+		"interval": 3600
 	},
 	"cpu": {
 		"format": " {usage}%",

@@ -146,7 +146,7 @@ tooltip label {
 }
 
 /* ===========================================
-   Window title — exec-driven, placeholder when empty
+   Window title
    =========================================== */
 #custom-window {
     background: @surface-3;
@@ -175,6 +175,25 @@ tooltip label {
 #custom-mpris:hover {
     background: @tertiary-container;
     color: @on-tertiary-container;
+}
+
+/* ===========================================
+   Notification Center
+   =========================================== */
+#custom-notification {
+    background: @surface-3;
+    color: @primary;
+    font-size: 16px;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    min-height: 26px;
+    transition: all 200ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+#custom-notification:hover {
+    background: @primary-container;
+    color: @on-primary-container;
 }
 
 /* ===========================================
@@ -215,9 +234,6 @@ tooltip label {
 
 /* ===========================================
    System Tray
-   Known limitation: GTK3 tray icons are bitmaps,
-   CSS color/filter cannot recolor them.
-   Fix: lighter bg + child color + icon-effect
    =========================================== */
 #tray {
     background: alpha(@on-surface, 0.08);
